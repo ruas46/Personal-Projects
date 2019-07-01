@@ -4,7 +4,7 @@
   * Vue
   * CSS Grid
 
-# Commands history:
+## Commands history:
 
 ### Install Vue/cli Global
 npm i -g @vue/cli
