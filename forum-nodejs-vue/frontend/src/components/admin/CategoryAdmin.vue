@@ -2,24 +2,29 @@
     <div class="category-admin">
         <b-form>
             <input type="hidden" id="category-id" v-model="category.id" />
-            <b-row>
-                <b-col xs="12">
-                    <b-form-group label="Name:" label-for="category-name">
-                        <b-form-input id="category-name" type="text"
-                            v-model="category.name"
-                            :readonly="mode === 'remove'"
-                            placeholder="Enter the category name"
-                        />
-                    </b-form-group>
-                </b-col>
-            </b-row>
-            <b-row>
-                <b-col xs="12">
-                    <b-button variant="primary" v-if="mode === 'save'" @click="save">Save</b-button>
-                    <b-button variant="danger" v-if="mode === 'remove'" @click="remove">Remove</b-button>
-                    <b-button @click="reset" class="ml-2">Cancel</b-button>
-                </b-col>
-            </b-row>
+            <b-form-group label="Name:" label-for="category-name">
+                <b-form-input id="category-name" type="text"
+                    v-model="category.name"
+                    :readonly="mode === 'remove'"
+                    placeholder="Enter the category name"
+                />
+            </b-form-group>
+        
+            <b-form-group label="Category Parent:" label-for="category-parentId">
+                <b-form-select id="category-parentId"
+                    v-if="mode === 'save'"
+                    :options="categories" v-model="category.parentId"
+                />
+                <b-form-input id="category-parentId" type="text"
+                    v-else
+                    v-model="category.path"
+                    readonly
+                />
+            </b-form-group>
+        
+            <b-button variant="primary" v-if="mode === 'save'" @click="save">Save</b-button>
+            <b-button variant="danger" v-if="mode === 'remove'" @click="remove">Remove</b-button>
+            <b-button @click="reset" class="ml-2">Cancel</b-button>
         </b-form>
         <hr />
         <b-table hover striped :items="categories" :fields="fields">
@@ -58,7 +63,9 @@ export default {
         loadCategories() {
             const url = `${baseApiUrl}/categories`
             axios.get(url).then(res => {
-                this.categories = res.data
+                this.categories = res.data.map(category => {
+                    return { ...category, value: category.id, text: category.path }
+                })
             })
         },
         reset() {
