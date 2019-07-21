@@ -7,6 +7,15 @@ import reduxThunk from 'redux-thunk'
 import App from './App'
 import reducers from './reducers'
 
+// Only for dev test
+import axios from 'axios'
+window.axios = axios
+/*
+in console, logged, can use axios to test a request, like:
+const survey = { title: 'my title', subject: 'my subject', recipients: 'guilhermeruas@hotmail.com', body: 'email Body....' };
+axios.post('/api/surveys', survey);
+*/
+
 const store = createStore(reducers, {}, applyMiddleware(reduxThunk))
 
 
