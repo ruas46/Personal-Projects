@@ -6,7 +6,8 @@ if(process.env.NODE_ENV === 'production') {
         mongoURI: process.env.MONGO_URI,
         cookieKey: process.env.COOKIE_KEY,
         stripePublishableKey: process.env.STRIPE_PUBLISHABLE_KEY,
-        stripeSecretKey: process.env.STRIPE_SECRET_KEY
+        stripeSecretKey: process.env.STRIPE_SECRET_KEY,
+        sendGridKey: process.env.SEND_GRID_KEY
     }
 } else {
     module.exports = {
@@ -15,7 +16,8 @@ if(process.env.NODE_ENV === 'production') {
         mongoURI: '',
         cookieKey: 'redacted',
         stripePublishableKey: '',
-        stripeSecretKey: ''
+        stripeSecretKey: '',
+        sendGridKey: ''
     }
 }
 // Update googleClientId and googleClientSecret with Google Credentials, set MongoDB Atlas URI in mongoURI and rename this file to .keys.js
