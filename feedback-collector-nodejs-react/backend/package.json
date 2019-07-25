@@ -9,7 +9,8 @@
   },
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "webhook": "lt -p 5000 -s fd6546dd4g67hkio8"
   },
   "keywords": [],
   "author": "",
@@ -18,6 +19,7 @@
     "body-parser": "^1.19.0",
     "cookie-session": "^1.3.3",
     "express": "^4.17.1",
+    "localtunnel": "^1.9.2",
     "mongoose": "^5.6.4",
     "nodemon": "^1.19.1",
     "passport": "^0.4.0",
