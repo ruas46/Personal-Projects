@@ -18,10 +18,14 @@
   * View campaign responses
   * Rest API
   * Front API Desktop/Mobile
+  * Handle with webhook using local tunnel
 
 ### Commands:
 * Run Backend as Dev
   * npm run dev
+
+* Run Backend Webhook handler
+  * npm run webhook
 
 * Run Frontend
   * npm start
