@@ -21,3 +21,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Update config/keys.js with credentials and rename this file to .keys.js
+.keys.js
