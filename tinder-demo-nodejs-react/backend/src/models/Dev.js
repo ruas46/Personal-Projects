@@ -7,12 +7,12 @@ const DevSchema = new Schema({
     },
     user: {
         type: String,
-        required
+        required: true
     },
     bio: String,
     avatar: {
         type: String,
-        required
+        required: true
     },
     likes: [{
         type: Schema.Types.ObjectId,
